@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Author: https://github.com/electronicsleep
-# Purpose: DebianServer: Example Python check
+# Purpose: DebianServer: Simple Python website check
 # Released under the BSD license
 
 import requests
@@ -49,7 +49,7 @@ if len(website_errors_list) == 0:
     print("All websites ok " + str(count) + " | error=0")
 else:
     print("Website Errors found:")
+    print(website_errors_list)
     subprocess.call(["bash", cwd + "slackpost.sh", host])
     subprocess.call(["bash", cwd + "slackpost.sh", str(website_errors_list)])
-    print(website_errors_list)
     exit(1)
